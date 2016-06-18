@@ -1,0 +1,10 @@
+{
+  "name": "sir-font",
+  "version": "0.0.1",
+  "main": "main.js",
+  "dependencies": {
+    "electron-prebuilt": "^1.2.2",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0"
+  }
+}
