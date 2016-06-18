@@ -1,19 +1,19 @@
 var react = require('../node_modules/react');
 var render = require('../node_modules/react-dom');
 
-var HelloMessage = react.createClass({
-    displayName: 'hello',
+var AppWindow = react.createClass({
+    displayName: 'appWindow',
     render: function() {
         return react.createElement(
             'div',
             null,
-            'hello ',
-            this.props.name
+            react.createElement('div', { className: 'master-pane'}),
+            react.createElement('div', { className: 'detail-pane'})
         );
     }
 });
 
 render.render(
-    react.createElement(HelloMessage, { name: 'simon' }),
+    react.createElement(AppWindow, null),
     document.getElementById('root')
 );

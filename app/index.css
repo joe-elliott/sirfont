@@ -1,0 +1,25 @@
+#root {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.master-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: green;
+}
+
+.detail-pane {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    bottom: 0;
+    right: 0;
+    background-color:red;
+}
