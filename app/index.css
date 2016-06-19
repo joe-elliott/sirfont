@@ -12,7 +12,7 @@
     left: 0;
     bottom: 0;
     width: 200px;
-    background-color: green;
+    background-color: brown;
 }
 
 .detail-pane {
@@ -21,5 +21,15 @@
     left: 200px;
     bottom: 0;
     right: 0;
-    background-color:red;
+    background-color:yellow;
+}
+
+.detail-pane > textarea {
+    resize: none;
+    position: absolute;
+    height: 100%;
+     width: 100%;
+     -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+     -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+     box-sizing: border-box;         /* Opera/IE 8+ */
 }

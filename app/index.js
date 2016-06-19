@@ -8,7 +8,9 @@ var AppWindow = react.createClass({
             'div',
             null,
             react.createElement('div', { className: 'master-pane'}),
-            react.createElement('div', { className: 'detail-pane'})
+            react.createElement('div', { className: 'detail-pane'}, 
+                react.createElement('textarea')
+            )
         );
     }
 });
