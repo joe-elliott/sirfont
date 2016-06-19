@@ -6,8 +6,9 @@ var DetailPane = react.createClass({
 
     getInitialState: function() {
         return {
-            backgroundColor: '#fff',
-            foregroundColor: '#000'
+            backgroundColor: configStore.defaultValues.backgroundColor,
+            foregroundColor: configStore.defaultValues.foregroundColor,
+            fontSize: configStore.defaultValues.fontSize
         }
     },
     
@@ -22,7 +23,8 @@ var DetailPane = react.createClass({
     _onChange: function() {
         this.setState({
             backgroundColor: configStore.store.backgroundColor,
-            foregroundColor: configStore.store.foregroundColor
+            foregroundColor: configStore.store.foregroundColor,
+            fontSize: configStore.store.fontSize
         });
     },
     
@@ -35,7 +37,8 @@ var DetailPane = react.createClass({
             react.createElement('textarea', {
                 style: {
                     backgroundColor: detailPane.state.backgroundColor,
-                    color: detailPane.state.foregroundColor
+                    color: detailPane.state.foregroundColor,
+                    fontSize: detailPane.state.fontSize
                 }
             })
         );
