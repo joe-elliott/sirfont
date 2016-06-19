@@ -34,7 +34,8 @@ var DetailPane = react.createClass({
             {className: 'detail-pane'},
             react.createElement('textarea', {
                 style: {
-                    backgroundColor: detailPane.state.backgroundColor
+                    backgroundColor: detailPane.state.backgroundColor,
+                    color: detailPane.state.foregroundColor
                 }
             })
         );
