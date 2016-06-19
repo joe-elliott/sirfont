@@ -1,4 +1,5 @@
 var MasterPane = require('../components/MasterPane.js');
+var DetailPane = require('../components/DetailPane.js');
 
 var AppWindow = react.createClass({
     displayName: 'appWindow',
@@ -7,9 +8,7 @@ var AppWindow = react.createClass({
             'div',
             null,
             react.createElement(MasterPane, { className: 'master-pane'}),
-            react.createElement('div', { className: 'detail-pane'}, 
-                react.createElement('textarea')
-            )
+            react.createElement(DetailPane, { className: 'detail-pane'})
         );
     }
 });
