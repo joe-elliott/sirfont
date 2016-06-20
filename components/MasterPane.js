@@ -5,11 +5,9 @@ var fonts = require('../app/fonts.js')
 
 var FontListItem = react.createClass({
     handleClick: function() {
-        console.log(this.props.path);
-
         configStore.dispatcher.dispatch({
-            actionType: configStore.actionTypes.fontPath,
-            newValue: this.props.path
+            actionType: configStore.actionTypes.fontName,
+            newValue: this.props.name
         });
     },
     render: function() {
