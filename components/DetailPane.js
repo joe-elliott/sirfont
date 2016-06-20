@@ -8,7 +8,8 @@ var DetailPane = react.createClass({
         return {
             backgroundColor: configStore.defaultValues.backgroundColor,
             foregroundColor: configStore.defaultValues.foregroundColor,
-            fontSize: configStore.defaultValues.fontSize
+            fontSize: configStore.defaultValues.fontSize,
+            fontPath: configStore.defaultValues.fontPath,
         }
     },
     
@@ -24,7 +25,8 @@ var DetailPane = react.createClass({
         this.setState({
             backgroundColor: configStore.store.backgroundColor,
             foregroundColor: configStore.store.foregroundColor,
-            fontSize: configStore.store.fontSize
+            fontSize: configStore.store.fontSize,
+            fontPath: configStore.store.fontPath
         });
     },
     
@@ -38,7 +40,8 @@ var DetailPane = react.createClass({
                 style: {
                     backgroundColor: detailPane.state.backgroundColor,
                     color: detailPane.state.foregroundColor,
-                    fontSize: detailPane.state.fontSize
+                    fontSize: detailPane.state.fontSize,
+                    fontFamily: 'C:\Users\joe\.sirFont\fonts\Kaleidoscopic Vision.ttf' //detailPane.state.fontPath
                 }
             })
         );

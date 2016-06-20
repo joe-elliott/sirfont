@@ -1,6 +1,22 @@
 var SketchPicker = require('react-color').SketchPicker;
 var configStore = require('../store/configStore');
 
+var fonts = require('../app/fonts.js')
+
+var FontListItem = react.createClass({
+    handleClick: function() {
+        console.log(this.props.path);
+
+        configStore.dispatcher.dispatch({
+            actionType: configStore.actionTypes.fontPath,
+            newValue: this.props.path
+        });
+    },
+    render: function() {
+        return react.createElement('li', { onClick: this.handleClick, key: this.props.name }, this.props.name);
+    }
+});
+
 var MasterPane = react.createClass({
     displayName: 'masterPane',
     getInitialState: function() {
@@ -34,7 +50,13 @@ var MasterPane = react.createClass({
             {className : 'master-pane'},
             react.createElement(SketchPicker, { onChange: this.onBackgroundColorChange, color: configStore.defaultValues.foregroundColor }),
             react.createElement(SketchPicker, { onChange: this.onForegroundColorChange, color: configStore.defaultValues.backgroundColor }),
-            react.createElement('input', { type : 'range', min: 4, max: 300, onChange: this.onFontSizeChange, value: this.state.fontSize })
+            react.createElement('input', { type : 'range', min: 4, max: 1000, onChange: this.onFontSizeChange, value: this.state.fontSize }),
+            react.createElement('ul',
+                                null,
+                                fonts.map(function(font) {
+                                    return react.createElement(FontListItem, font);
+                                })
+                               )
         );
     }
 });
