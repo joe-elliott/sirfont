@@ -1,4 +1,5 @@
 var configStore = require('../store/configStore');
+var react = require('react');
 
 var DetailPane = react.createClass({
     displayName: 'detailPane',

@@ -1,5 +1,6 @@
 var MasterPane = require('../components/MasterPane.js');
 var DetailPane = require('../components/DetailPane.js');
+var react = require('react');
 
 var AppWindow = react.createClass({
     displayName: 'appWindow',

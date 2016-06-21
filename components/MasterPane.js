@@ -1,5 +1,6 @@
 var SketchPicker = require('react-color').SketchPicker;
 var configStore = require('../store/configStore');
+var react = require('react');
 
 var fonts = require('../app/fonts.js')
 
