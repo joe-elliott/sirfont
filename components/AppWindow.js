@@ -1,16 +1,14 @@
-var MasterPane = require('../components/MasterPane.js');
-var DetailPane = require('../components/DetailPane.js');
-var react = require('react');
+import MasterPane from '../components/MasterPane.js';
+import DetailPane from '../components/DetailPane.js';
+import React from 'react';
 
-var AppWindow = react.createClass({
+var AppWindow = React.createClass({
     displayName: 'appWindow',
-    render: function() {     
-        return react.createElement(
-            'div',
-            null,
-            react.createElement(MasterPane, { className: 'master-pane'}),
-            react.createElement(DetailPane, { className: 'detail-pane'})
-        );
+    render: function() {
+        return <div>
+                    <MasterPane className='master-pane'></MasterPane>
+                    <DetailPane className='detail-pane'></DetailPane>
+               </div>;
     }
 });
 
