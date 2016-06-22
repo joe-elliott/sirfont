@@ -2,7 +2,7 @@ import MasterPane from '../components/MasterPane.js';
 import DetailPane from '../components/DetailPane.js';
 import React from 'react';
 
-var AppWindow = React.createClass({
+export default React.createClass({
     displayName: 'appWindow',
     render: function() {
         return <div>
@@ -11,5 +11,3 @@ var AppWindow = React.createClass({
                </div>;
     }
 });
-
-module.exports = AppWindow;
