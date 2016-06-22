@@ -1,7 +1,7 @@
-var configStore = require('../store/configStore');
-var react = require('react');
+import configStore from '../store/configStore';
+import React from 'react';
 
-var DetailPane = react.createClass({
+export default React.createClass({
     displayName: 'detailPane',
     onChangeToken: null,
 
@@ -32,21 +32,15 @@ var DetailPane = react.createClass({
     },
     
     render: function() {
-        var detailPane = this;
+        var textareaStyle = {
+            backgroundColor: this.state.backgroundColor,
+            color: this.state.foregroundColor,
+            fontSize: this.state.fontSize,
+            fontFamily: this.state.fontName
+        };
 
-        return react.createElement(
-            'div',
-            {className: 'detail-pane'},
-            react.createElement('textarea', {
-                style: {
-                    backgroundColor: detailPane.state.backgroundColor,
-                    color: detailPane.state.foregroundColor,
-                    fontSize: detailPane.state.fontSize,
-                    fontFamily: detailPane.state.fontName
-                }
-            })
-        );
+        return <div className='detail-pane'>
+                    <textarea style={textareaStyle} />
+               </div>
     }
 });
-
-module.exports = DetailPane;
