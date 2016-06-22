@@ -1,9 +1,8 @@
-var react = require('react');
-var render = require('react-dom');
-
-var AppWindow = require('../components/AppWindow.js');
+import React from 'react';
+import render from 'react-dom';
+import AppWindow from '../components/AppWindow.js';
 
 render.render(
-    react.createElement(AppWindow, null),
+    <AppWindow/>,
     document.getElementById('root')
 );
