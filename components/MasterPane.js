@@ -1,10 +1,9 @@
-var SketchPicker = require('react-color').SketchPicker;
-var configStore = require('../store/configStore');
-var react = require('react');
+import { SketchPicker } from 'react-color';
+import configStore from '../store/configStore';
+import React from 'react';
+import fonts from '../app/fonts.js';
 
-var fonts = require('../app/fonts.js')
-
-var FontListItem = react.createClass({
+var FontListItem = React.createClass({
     handleClick: function() {
         configStore.dispatcher.dispatch({
             actionType: configStore.actionTypes.fontName,
@@ -12,11 +11,11 @@ var FontListItem = react.createClass({
         });
     },
     render: function() {
-        return react.createElement('li', { onClick: this.handleClick, key: this.props.name }, this.props.name);
+        return <li onClick={this.handleClick}>{this.props.name}</li>;
     }
 });
 
-var MasterPane = react.createClass({
+export default React.createClass({
     displayName: 'masterPane',
     getInitialState: function() {
         return { fontSize: configStore.defaultValues.fontSize }
@@ -44,20 +43,15 @@ var MasterPane = react.createClass({
         });
     },
     render: function() {
-        return react.createElement(
-            'div',
-            {className : 'master-pane'},
-            react.createElement(SketchPicker, { onChange: this.onBackgroundColorChange, color: configStore.defaultValues.foregroundColor }),
-            react.createElement(SketchPicker, { onChange: this.onForegroundColorChange, color: configStore.defaultValues.backgroundColor }),
-            react.createElement('input', { type : 'range', min: 4, max: 1000, onChange: this.onFontSizeChange, value: this.state.fontSize }),
-            react.createElement('ul',
-                                null,
-                                fonts.map(function(font) {
-                                    return react.createElement(FontListItem, font);
-                                })
-                               )
-        );
+        return <div className='master-pane'>
+                    <SketchPicker onChange={this.onBackgroundColorChange} color={configStore.defaultValues.backgroundColor} /> 
+                    <SketchPicker onChange={this.onForegroundColorChange} color={configStore.defaultValues.foregroundColor} />
+                    <input type='range' min={4} max={1000} onChange={this.onFontSizeChange} value={this.state.fontSize} />
+                    <ul>
+                        {
+                            fonts.map(function(font, idx) { return <FontListItem key={idx} name={font.name}/> })
+                        }
+                    </ul>
+               </div>;
     }
 });
-
-module.exports = MasterPane;
