@@ -4,7 +4,7 @@ var react = require('react');
 
 var AppWindow = react.createClass({
     displayName: 'appWindow',
-    render: function() {
+    render: function() {     
         return react.createElement(
             'div',
             null,
