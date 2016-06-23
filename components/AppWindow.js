@@ -6,8 +6,8 @@ export default React.createClass({
     displayName: 'appWindow',
     render: function() {
         return <div>
-                    <MasterPane className='master-pane'></MasterPane>
-                    <DetailPane className='detail-pane'></DetailPane>
+                    <MasterPane />
+                    <DetailPane />
                </div>;
     }
 });

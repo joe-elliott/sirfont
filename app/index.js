@@ -2,6 +2,7 @@ import React from 'react';
 import render from 'react-dom';
 import AppWindow from '../components/AppWindow.js';
 import defines from '../app/defines.js'
+import configStore from '../store/configStore.js'
 
 render.render(
     <AppWindow/>,
@@ -9,8 +10,9 @@ render.render(
 );
 
 document.onmousemove = (event) => {
-
-if(event.pageX < defines.LEFT_MARGIN_TO_SHOW_OPTIONS) {
-        console.log('coords: ' + event.pageX + ',' + event.pageY);
-    }    
+    //hides/shows the options menu
+    configStore.dispatcher.dispatch({
+        actionType: configStore.actionTypes.showOptions,
+        newValue: event.pageX < defines.LEFT_MARGIN_TO_SHOW_OPTIONS 
+    });
 };

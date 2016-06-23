@@ -47,6 +47,6 @@ module.exports = {
         foregroundColor : ACTION_TYPE_FOREGROUND_COLOR,
         fontSize : ACTION_TYPE_FONT_SIZE,
         fontName : ACTION_TYPE_FONT_NAME,
-        showSideMenu : false
+        showOptions : ACTION_TYPE_SHOW_OPTIONS
     }
 };
