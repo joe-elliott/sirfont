@@ -14,12 +14,13 @@
     left: 0;
     bottom: 0;
     width: 220px;
+    z-index: 1;
 }
 
 .detail-pane {
     position: absolute;
     top: 0;
-    left: 220px;
+    left: 0;
     bottom: 0;
     right: 0;
 }
@@ -32,4 +33,23 @@
      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
      box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+/* Main Pane animation */
+.show-hide-options-enter {
+  left: -220px;
+}
+
+.show-hide-options-enter.show-hide-options-enter-active {
+  left: 0px;
+  transition: left 300ms ease-out;
+}
+
+.show-hide-options-leave {
+  left: 0px;
+}
+
+.show-hide-options-leave.show-hide-options-leave-active {
+  left: -220px;
+  transition: left 300ms ease-in;
 }

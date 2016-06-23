@@ -34,7 +34,7 @@ appStore.__onDispatch = function(payload) {
     } else if(payload.actionType === ACTION_TYPE_SHOW_OPTIONS) {
         if(appStore.showOptions !== payload.newValue) {
             appStore.showOptions = payload.newValue;
-            this.___emitChange();
+            this.__emitChange();
         }
     }
 }
