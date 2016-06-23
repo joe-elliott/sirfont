@@ -1,47 +1,52 @@
-var dispatcher = new (require('flux').Dispatcher)();
-var storeBase = require('flux/utils').Store;
+import { Dispatcher } from 'flux';
+import { Store } from 'flux/utils';
+import defines from '../app/defines.js';
+
+var appDispatcher = new Dispatcher();
 
 const ACTION_TYPE_BACKGROUND_COLOR = 'background-color-update';
 const ACTION_TYPE_FOREGROUND_COLOR = 'foreground-color-update';
 const ACTION_TYPE_FONT_SIZE = 'font-size-update';
 const ACTION_TYPE_FONT_NAME = 'font-name-update';
+const ACTION_TYPE_SHOW_OPTIONS = 'show-options-update'
 
-var store = new storeBase(dispatcher);
+var appStore = new Store(appDispatcher);
 
-store.foregroundColor = '#000';
-store.backgroundColor = '#fff';
-store.fontSize        = 14;
-store.fontName        = null;
+appStore.foregroundColor = defines.DEFAULT_FOREGROUND_COLOR;
+appStore.backgroundColor = defines.DEFAULT_BACKGROUND_COLOR;
+appStore.fontSize        = defines.DEFAULT_FONT_SIZE;
+appStore.fontName        = defines.DEFAULT_FONT_NAME;
+appStore.showOptions     = defines.DEFAULT_SHOW_OPTIONS;
 
-store.__onDispatch = function(payload) {
+appStore.__onDispatch = function(payload) {
     if(payload.actionType === ACTION_TYPE_BACKGROUND_COLOR) {
-        store.backgroundColor = payload.newValue;
+        appStore.backgroundColor = payload.newValue;
         this.__emitChange();
     } else if(payload.actionType === ACTION_TYPE_FOREGROUND_COLOR) {
-        store.foregroundColor = payload.newValue;
+        appStore.foregroundColor = payload.newValue;
         this.__emitChange();
     } else if(payload.actionType === ACTION_TYPE_FONT_SIZE) {
-        store.fontSize = payload.newValue;
+        appStore.fontSize = payload.newValue;
         this.__emitChange();
     } else if(payload.actionType === ACTION_TYPE_FONT_NAME) {
-        store.fontName = payload.newValue;
+        appStore.fontName = payload.newValue;
         this.__emitChange();
+    } else if(payload.actionType === ACTION_TYPE_SHOW_OPTIONS) {
+        if(appStore.showOptions !== payload.newValue) {
+            appStore.showOptions = payload.newValue;
+            this.___emitChange();
+        }
     }
 }
 
 module.exports = {
-    store: store,
-    dispatcher: dispatcher,
+    store: appStore,
+    dispatcher: appDispatcher,
     actionTypes: {
         backgroundColor : ACTION_TYPE_BACKGROUND_COLOR,
         foregroundColor : ACTION_TYPE_FOREGROUND_COLOR,
         fontSize : ACTION_TYPE_FONT_SIZE,
-        fontName : ACTION_TYPE_FONT_NAME
-    },
-    defaultValues: {
-        backgroundColor : '#fff',
-        foregroundColor : '#000',
-        fontSize : 14,
-        fontName : null
+        fontName : ACTION_TYPE_FONT_NAME,
+        showSideMenu : false
     }
 };

@@ -2,6 +2,7 @@ import { SketchPicker } from 'react-color';
 import configStore from '../store/configStore';
 import React from 'react';
 import fonts from '../app/fonts.js';
+import defines from '../app/defines.js';
 
 var FontListItem = React.createClass({
     handleClick: function() {
@@ -18,7 +19,7 @@ var FontListItem = React.createClass({
 export default React.createClass({
     displayName: 'masterPane',
     getInitialState: function() {
-        return { fontSize: configStore.defaultValues.fontSize }
+        return { fontSize: defines.DEFAULT_FONT_SIZE }
     },
     onBackgroundColorChange: function(color) {
         configStore.dispatcher.dispatch({
@@ -44,8 +45,8 @@ export default React.createClass({
     },
     render: function() {
         return <div className='master-pane'>
-                    <SketchPicker onChange={this.onBackgroundColorChange} color={configStore.defaultValues.backgroundColor} /> 
-                    <SketchPicker onChange={this.onForegroundColorChange} color={configStore.defaultValues.foregroundColor} />
+                    <SketchPicker onChange={this.onBackgroundColorChange} color={defines.DEFAULT_BACKGROUND_COLOR} /> 
+                    <SketchPicker onChange={this.onForegroundColorChange} color={defines.DEFAULT_FOREGROUND_COLOR} />
                     <input type='range' min={4} max={1000} onChange={this.onFontSizeChange} value={this.state.fontSize} />
                     <ul>
                         {

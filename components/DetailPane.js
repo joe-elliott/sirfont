@@ -1,5 +1,6 @@
 import configStore from '../store/configStore';
 import React from 'react';
+import defines from '../app/defines.js';
 
 export default React.createClass({
     displayName: 'detailPane',
@@ -7,10 +8,10 @@ export default React.createClass({
 
     getInitialState: function() {
         return {
-            backgroundColor: configStore.defaultValues.backgroundColor,
-            foregroundColor: configStore.defaultValues.foregroundColor,
-            fontSize: configStore.defaultValues.fontSize,
-            fontName: configStore.defaultValues.fontName,
+            backgroundColor: defines.DEFAULT_BACKGROUND_COLOR,
+            foregroundColor: defines.DEFAULT_FOREGROUND_COLOR,
+            fontSize: defines.DEFAULT_FONT_SIZE,
+            fontName: defines.DEFAULT_FONT_NAME,
         }
     },
     
