@@ -23,7 +23,9 @@ export default React.createClass({
     getInitialState: function() {
         return {
                  fontSize: defines.DEFAULT_FONT_SIZE,
-                 showOptions: defines.DEFAULT_SHOW_OPTIONS
+                 showOptions: defines.DEFAULT_SHOW_OPTIONS,
+                 fontName: defines.DEFAULT_FONT_NAME,
+                 backgroundColor: defines.DEFAULT_BACKGROUND_COLOR
                }
     },
 
@@ -62,16 +64,30 @@ export default React.createClass({
 
     _onChange: function() {
         this.setState({
-            showOptions: configStore.store.showOptions       
+            showOptions: configStore.store.showOptions,
+            fontName: configStore.store.fontName,
+            fontSize: configStore.store.fontSize,
+            backgroundColor: configStore.store.backgroundColor  
         });
     },
 
     render: function() {
-        var masterPaneDiv = null;
+        
+        var rgb = defines.utils.hexToRgb(this.state.backgroundColor);
+        var luminance = defines.utils.colorLuminance(rgb.r, rgb.g, rgb.b);
+        var iconBackgroundColor = luminance >  .5 ? '#000000' : '#FFFFFF';
 
-        console.log(this.state.showOptions);
+        var iconStyle = {
+            fontFamily: this.state.fontName,
+            backgroundColor: iconBackgroundColor,
+            color: this.state.backgroundColor
+        };
+
+        var masterPaneDiv = null;
         if(this.state.showOptions) {
             masterPaneDiv = <div key='animationKey' className='master-pane'>
+                                <div className='options-icon' style={iconStyle}>{defines.OPTIONS_ICON_LETTER}</div>
+
                                 <SketchPicker onChange={this.onBackgroundColorChange} color={defines.DEFAULT_BACKGROUND_COLOR} /> 
                                 <SketchPicker onChange={this.onForegroundColorChange} color={defines.DEFAULT_FOREGROUND_COLOR} />
                                 <input type='range' min={4} max={1000} onChange={this.onFontSizeChange} value={this.state.fontSize} />
