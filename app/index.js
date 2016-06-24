@@ -4,6 +4,8 @@ import AppWindow from '../components/AppWindow.js';
 import defines from '../app/defines.js'
 import configStore from '../store/configStore.js'
 
+import {} from '../app/index.css';
+
 render.render(
     <AppWindow/>,
     document.getElementById('root')

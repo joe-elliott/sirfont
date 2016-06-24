@@ -77,16 +77,27 @@ export default React.createClass({
         var luminance = defines.utils.colorLuminance(rgb.r, rgb.g, rgb.b);
         var iconBackgroundColor = luminance >  .5 ? '#000000' : '#FFFFFF';
 
-        var iconStyle = {
+        var backgroundIconStyle = {
             fontFamily: this.state.fontName,
             backgroundColor: iconBackgroundColor,
             color: this.state.backgroundColor
         };
 
+        var foregroundIconStyle = {
+            fontFamily: this.state.fontName,
+            backgroundColor: this.state.backgroundColor,
+            color: iconBackgroundColor
+        };
+
         var masterPaneDiv = null;
         if(this.state.showOptions) {
             masterPaneDiv = <div key='animationKey' className='master-pane'>
-                                <div className='options-icon' style={iconStyle}>{defines.OPTIONS_ICON_LETTER}</div>
+                                <div className='options-icon-container'>
+                                    <div className='options-icon' style={backgroundIconStyle}>{defines.OPTIONS_ICON_LETTER}</div>
+                                </div>
+                                <div className='options-icon-container'>
+                                    <div className='options-icon' style={foregroundIconStyle}>{defines.OPTIONS_ICON_LETTER}</div>
+                                </div>
 
                                 <SketchPicker onChange={this.onBackgroundColorChange} color={defines.DEFAULT_BACKGROUND_COLOR} /> 
                                 <SketchPicker onChange={this.onForegroundColorChange} color={defines.DEFAULT_FOREGROUND_COLOR} />
@@ -99,7 +110,7 @@ export default React.createClass({
                             </div>;
         }
 
-        return  <ReactCSSTransitionGroup transitionName="show-hide-options" transitionEnterTimeout={300} transitionLeaveTimeout={300}>
+        return  <ReactCSSTransitionGroup transitionName="show-hide-options" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
                     {masterPaneDiv}
                </ReactCSSTransitionGroup>;
     }

@@ -35,14 +35,34 @@
      box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-/* Main Pane animation */
+/* Master Pane animation */
+.options-icon {
+  font-size: 8em;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  line-height: 100px;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 8px;
+}
+
+.options-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: 220px;
+}
+
+/* Master Pane animations */
 .show-hide-options-enter {
   left: -220px;
 }
 
 .show-hide-options-enter.show-hide-options-enter-active {
   left: 0px;
-  transition: left 300ms ease-out;
+  transition: left 200ms ease-out;
 }
 
 .show-hide-options-leave {
@@ -51,5 +71,6 @@
 
 .show-hide-options-leave.show-hide-options-leave-active {
   left: -220px;
-  transition: left 300ms ease-in;
+  transition: left 200ms ease-in;
 }
+

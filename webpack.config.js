@@ -15,8 +15,8 @@ devServer: {
 target: 'node',
 module: {
  loaders: [
-   { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ }
-   //{ test: /\.css$/, loader: 'style-loader!css-loader' },
+   { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+   { test: /\.css$/, loader: 'style-loader!css-loader' }
    //{ test: /\.less$/, loader: 'style-loader!css-loader!less-loader'}
  ]
 },
