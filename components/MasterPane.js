@@ -98,6 +98,12 @@ export default React.createClass({
                                 <div className='options-icon-container'>
                                     <div className='options-icon' style={foregroundIconStyle}>{defines.OPTIONS_ICON_LETTER}</div>
                                 </div>
+                                <div className='options-icon-container'>
+                                    <div className='options-icon' style={foregroundIconStyle}>s</div>
+                                </div>
+                                <div className='options-icon-container'>
+                                    <div className='options-icon' style={foregroundIconStyle}>f</div>
+                                </div>
 
                                 <SketchPicker onChange={this.onBackgroundColorChange} color={defines.DEFAULT_BACKGROUND_COLOR} /> 
                                 <SketchPicker onChange={this.onForegroundColorChange} color={defines.DEFAULT_FOREGROUND_COLOR} />
