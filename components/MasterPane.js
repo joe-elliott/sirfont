@@ -92,6 +92,7 @@ export default React.createClass({
         var masterPaneDiv = null;
         if(this.state.showOptions) {
             masterPaneDiv = <div key='animationKey' className='master-pane'>
+                                {/*
                                 <div className='options-icon-container'>
                                     <div className='options-icon' style={backgroundIconStyle}>{defines.OPTIONS_ICON_LETTER}</div>
                                 </div>
@@ -104,7 +105,7 @@ export default React.createClass({
                                 <div className='options-icon-container'>
                                     <div className='options-icon' style={foregroundIconStyle}>f</div>
                                 </div>
-
+                                */}
                                 <SketchPicker onChange={this.onBackgroundColorChange} color={defines.DEFAULT_BACKGROUND_COLOR} /> 
                                 <SketchPicker onChange={this.onForegroundColorChange} color={defines.DEFAULT_FOREGROUND_COLOR} />
                                 <input type='range' min={4} max={1000} onChange={this.onFontSizeChange} value={this.state.fontSize} />
