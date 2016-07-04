@@ -109,7 +109,7 @@ export default React.createClass({
                                 <SketchPicker onChange={this.onBackgroundColorChange} color={defines.DEFAULT_BACKGROUND_COLOR} /> 
                                 <SketchPicker onChange={this.onForegroundColorChange} color={defines.DEFAULT_FOREGROUND_COLOR} />
                                 <input type='range' min={4} max={1000} onChange={this.onFontSizeChange} value={this.state.fontSize} />
-                                <ul>
+                                <ul className="font-list">
                                     {
                                         fonts.map(function(font, idx) { return <FontListItem key={idx} name={font.name}/> })
                                     }

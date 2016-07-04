@@ -13,9 +13,8 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 220px;
+    width: 440px;
     z-index: 1;
-    overflow: hidden;
 }
 
 .detail-pane {
@@ -34,6 +33,23 @@
      -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
      -moz-box-sizing: border-box;    /* Firefox, other Gecko */
      box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.font-list {
+  display: block;
+  position: absolute;
+  left: 220px;
+  top: 0px;
+  width: 220px;
+  bottom: 0px;
+}
+
+.font-list > li {
+  background: white;
+  list-style: none;
+  padding: 4px;
+  margin-bottom: 2px;
+  opacity: .9;
 }
 
 /* Master Pane animation */
@@ -58,7 +74,7 @@
 
 /* Master Pane animations */
 .show-hide-options-enter {
-  left: -220px;
+  left: -440px;
 }
 
 .show-hide-options-enter.show-hide-options-enter-active {
@@ -71,7 +87,7 @@
 }
 
 .show-hide-options-leave.show-hide-options-leave-active {
-  left: -220px;
+  left: -440px;
   transition: left 200ms ease-in;
 }
 
