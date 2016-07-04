@@ -38,17 +38,18 @@
 .font-list {
   display: block;
   position: absolute;
-  left: 220px;
+  left: 200px;
   top: 0px;
-  width: 220px;
+  width: 240px;
   bottom: 0px;
+  overflow-y: scroll;
 }
 
 .font-list > li {
   background: white;
   list-style: none;
   padding: 4px;
-  margin-bottom: 2px;
+  margin: 2px;
   opacity: .9;
 }
 

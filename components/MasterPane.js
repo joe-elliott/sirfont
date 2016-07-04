@@ -13,7 +13,12 @@ var FontListItem = React.createClass({
         });
     },
     render: function() {
-        return <li onClick={this.handleClick}>{this.props.name}</li>;
+        var labelStyle = { fontFamily: this.props.name };
+
+        return <li onClick={this.handleClick}>
+                    {this.props.name}<br/>
+                    <label style={labelStyle}>abcdefg</label>
+               </li>;
     }
 });
 
