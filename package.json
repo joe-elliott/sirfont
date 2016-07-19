@@ -2,6 +2,9 @@
   "name": "sir-font",
   "version": "0.0.1",
   "main": "main.js",
+  "scripts": {
+    "watch": "./node_modules/.bin/webpack-dev-server"
+  },
   "dependencies": {
     "electron-prebuilt": "^1.2.2",
     "flux": "^2.1.1",
